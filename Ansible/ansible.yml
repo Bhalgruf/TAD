@@ -1,0 +1,11 @@
+- name : Deply sudo configuration
+  hosts: all
+  become: true
+  become_user: root
+  tasks:
+    - name: Change sudo configuration using lineinfile
+      lineinfile:
+        path: /etc/sudoers
+        regexp: 'sshuser ALL='
+        line: 'sshuser ALL=(ALL) NOPASSWD: ALL'
+        state: present
