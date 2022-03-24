@@ -9,7 +9,21 @@
         regexp: 'sshuser ALL='
         line: 'sshuser ALL=(ALL) NOPASSWD: ALL'
         state: present
+    
+
+- name : Install apache & php
+  hosts: web
+  tasks:
     - name: install apache
       apt: name=apache2
+      notify: lancer Apache
+
     - name: install php
       apt: name=php
+      notify: lancer php
+
+
+  handlers:
+    - name: lancer Apache
+      service: name=apache2 state=started
+    
