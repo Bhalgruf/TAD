@@ -9,3 +9,7 @@
         regexp: 'sshuser ALL='
         line: 'sshuser ALL=(ALL) NOPASSWD: ALL'
         state: present
+    - name: install apache
+      apt: name=apache2
+    - name: install php
+      apt: name=php
