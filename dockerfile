@@ -1,6 +1,6 @@
 FROM ubuntu:latest
 
-RUN apt update && apt install  openssh-server sudo -y
+RUN apt update && apt install  openssh-server sudo python3 -y 
 
 RUN mkdir -p /run/sshd && \
     useradd -m -s /bin/bash sshuser && \
